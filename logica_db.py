@@ -63,7 +63,7 @@ def agregar_cita(nombre, fecha, hora, medico):
     conn = conectar()
     c = conn.cursor()
 
-    # 🔍 Verificar si ya existe una cita igual
+    
     c.execute("""
         SELECT * FROM citas
         WHERE fecha=? AND hora=? AND medico=?
@@ -73,7 +73,7 @@ def agregar_cita(nombre, fecha, hora, medico):
         conn.close()
         return False, "Ese médico ya tiene una cita en ese horario"
 
-    # ✅ Insertar si no existe
+  
     c.execute(
         "INSERT INTO citas VALUES (NULL, ?, ?, ?, ?)",
         (nombre, fecha, hora, medico)
@@ -128,7 +128,7 @@ def editar_cita(id_cita, nombre, fecha, hora, medico):
     conn = conectar()
     c = conn.cursor()
 
-    # Evitar duplicar horario (excepto la misma cita)
+
     c.execute("""
         SELECT * FROM citas
         WHERE fecha=? AND hora=? AND medico=? AND id!=?
