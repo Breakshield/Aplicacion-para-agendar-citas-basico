@@ -12,8 +12,7 @@ def iniciar_app():
     medicos = ["Dr. Perez", "Dra. Gonzalez", "Dr. Ramirez"]
 
     # ==========================
-    # VALIDACIONES
-    # ==========================
+
     def validar_fecha(fecha):
         try:
             f = datetime.strptime(fecha, "%d/%m/%Y").date()
@@ -29,8 +28,7 @@ def iniciar_app():
             return False
 
     # ==========================
-    # TÍTULO
-    # ==========================
+
     tk.Label(
         root,
         text="Sistema de Citas Médicas",
@@ -38,8 +36,7 @@ def iniciar_app():
     ).pack(pady=10)
 
     # ==========================
-    # FORMULARIO
-    # ==========================
+
     frame_form = tk.Frame(root)
     frame_form.pack(pady=5)
 
@@ -96,8 +93,7 @@ def iniciar_app():
     ).grid(pady=10)
 
     # ==========================
-    # TABLA
-    # ==========================
+
     frame_tabla = tk.Frame(root)
     frame_tabla.pack(pady=10)
 
@@ -134,8 +130,7 @@ def iniciar_app():
     cargar_tabla()
 
     # ==========================
-    # EDITAR CITA (DOBLE CLIC)
-    # ==========================
+
     def editar_cita(event):
         seleccionado = tabla.selection()
         if not seleccionado:
@@ -198,8 +193,7 @@ def iniciar_app():
     tabla.bind("<Double-1>", editar_cita)
 
     # ==========================
-    # BOTONES TABLA
-    # ==========================
+    
     frame_botones = tk.Frame(root)
     frame_botones.pack(pady=10)
 
